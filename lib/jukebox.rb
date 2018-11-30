@@ -28,11 +28,6 @@ def play(songs)
   songs.each_with_index do |song, idx|
     # this is the one line if else statement condition? true : false
     puts (request == song || request == (idx + 1).to_s) ? "Playing #{song}" : "Invalid input, please try again"
-    # if request == song || request == idx + 1
-    #   puts "Playing #{song}"
-    # else
-    #   puts "Invalid input, please try again"
-    # end
   end
 end
 
@@ -42,11 +37,11 @@ end
 
 def run(songs)
   help # calling help to show available commands
-  while true
+  while true # this is always going to run because its set to true
     puts "Please enter a command:"
     command = gets.chomp
 
-    case command
+    case command # our case statement for command which is what the user input
       when "help"
         help
       when "list"
@@ -55,7 +50,6 @@ def run(songs)
         play(songs)
       when "exit"
         exit_jukebox
-        break
     end
   end
 end
